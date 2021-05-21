@@ -6,6 +6,7 @@ namespace FamilyTree
     {
         static void Main(string[] args)
         {
+            
             var sverreMagnus = new Person { Id = 1, FirstName = "Sverre Magnus", BirthYear = 2005 };
             var ingridAlexandra = new Person { Id = 2, FirstName = "Ingrid Alexandra", BirthYear = 2004 };
             var haakon = new Person { Id = 3, FirstName = "Haakon Magnus", BirthYear = 1973 };
@@ -34,6 +35,7 @@ namespace FamilyTree
                 var response = app.HandleCommand(command);
                 Console.WriteLine(response);
             }
+            
         }
 
     }

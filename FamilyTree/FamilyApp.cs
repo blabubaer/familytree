@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace FamilyTree
 {
@@ -58,13 +60,45 @@ namespace FamilyTree
                 {
                     foreach (var person in family)
                     {
-                        if (person.Id == id) return person.GetDescription();
-                        else return "Ingen familienmedlem med denne Id.";
+                        if (person.Id == id)
+                        {
+                            string returntext = person.GetDescription();
+                            if (FindChildren(person).Length > 0)
+                            {
+                                returntext += "\n  Barn:\n";
+                                foreach (var child in FindChildren(person))
+                                {
+                                    returntext += "    " + child.FirstName +
+                                                  $" (Id={child.Id}) Født: {child.BirthYear}\n";
+                                }
+                            }
+
+                            return returntext;
+                        }
+                        ;
                     }
+
+                    return "Ingen familienmedlem med denne Id.";
                 }
             }
 
             return "Wrong Command, please try again with: hjelp , liste  , vis <id>";
+        }
+
+        private Person[] FindChildren(Person parent)
+        {
+            List<Person> childrenList = new List<Person>();
+            foreach (var person in family)
+            {
+                if (person.Father == parent)
+                {
+                    childrenList.Add(person);
+                }
+            }
+
+            Person[] children = childrenList.ToArray();
+            return children;
+
         }
 
     }
