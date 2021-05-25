@@ -90,7 +90,7 @@ namespace FamilyTree
             List<Person> childrenList = new List<Person>();
             foreach (var person in family)
             {
-                if (person.Father == parent)
+                if (person.Father == parent || person.Mother == parent)
                 {
                     childrenList.Add(person);
                 }
