@@ -52,19 +52,19 @@
 
         public Person(int id, string firstname, string lastname, int birthyear, int deathyear, Person father, Person mother)
         {
-            this.Father = father;
-            this.Mother = mother;
-            this.FirstName = firstname;
-            this.LastName = lastname;
-            this.Id = id;
-            this.BirthYear = birthyear;
-            this.DeathYear = deathyear;
+            Father = father;
+            Mother = mother;
+            FirstName = firstname;
+            LastName = lastname;
+            Id = id;
+            BirthYear = birthyear;
+            DeathYear = deathyear;
         }
 
         public Person(int id, string firstname)
         {
-            this.FirstName = firstname;
-            this.Id = id;
+            FirstName = firstname;
+            Id = id;
         }
 
         public Person(){}
